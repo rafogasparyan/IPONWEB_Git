@@ -13,7 +13,7 @@ from ..models import Item, ItemCategory, Store
 class ItemView(View):
 
     @staticmethod
-    def dataStatus(data):
+    def data_status(data):
         return HttpResponse(
             json.dumps(data),
             status=200,
@@ -21,7 +21,7 @@ class ItemView(View):
         )
 
     @staticmethod
-    def okStatus():
+    def ok_status():
         return HttpResponse(
             json.dumps({"status": "ok"}), status=200, content_type="application/json"
         )
@@ -42,7 +42,7 @@ class ItemView(View):
                 'store': item.store.name,
             }
             data.append(item_data)
-        return ItemView.dataStatus(data)
+        return ItemView.data_status(data)
 
     @staticmethod
     def post(request):
@@ -72,15 +72,16 @@ class ItemView(View):
             store=store,
         )
         item.save()
-        return ItemView.okStatus()
+        return ItemView.ok_status()
 
     @staticmethod
-    def getSingle(request, id):
+    def get_single(request, id):
+
         try:
             item = Item.objects.get(id=id)
         except ObjectDoesNotExist:
             return HttpResponse({"status": "obj_not_found"})
-        return ItemView.dataStatus({
+        return ItemView.data_status({
             'id': item.id,
             'name': item.name,
             'picture': request.build_absolute_uri(item.picture.url) if item.picture else None,
@@ -157,10 +158,10 @@ class ItemView(View):
                 return HttpResponse({'status': 'obj_not_found'})
 
         item.save()
-        return ItemView.okStatus()
+        return ItemView.ok_status()
 
     @staticmethod
-    def checkView(request, id):
+    def check_view(request, id):
         if request.method == "GET":
             return ItemView.get_single(request, id)
         if request.method == "DELETE":

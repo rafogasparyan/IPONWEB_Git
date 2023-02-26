@@ -12,8 +12,9 @@ from ..models import Customer
 
 
 class CustomerView(View):
+
     @staticmethod
-    def dataStatus(data):
+    def data_status(data):
         return HttpResponse(
             json.dumps(data),
             status=200,
@@ -21,7 +22,7 @@ class CustomerView(View):
         )
 
     @staticmethod
-    def okStatus():
+    def ok_status():
         return HttpResponse(
             json.dumps({"status": "ok"}), status=200, content_type="application/json"
         )
@@ -62,7 +63,7 @@ class CustomerView(View):
         return CustomerView.ok_status()
 
     @staticmethod
-    def getSingle(request, id):
+    def get_single(request, id):
 
         try:
             customer = Customer.objects.get(id=id)
@@ -81,6 +82,7 @@ class CustomerView(View):
 
     @staticmethod
     def delete(request, id):
+
         try:
             customer = Customer.objects.get(id=id)
         except ObjectDoesNotExist:
@@ -109,7 +111,7 @@ class CustomerView(View):
         return CustomerView.ok_status()
 
     @staticmethod
-    def checkView(request, id):
+    def check_view(request, id):
         if request.method == "GET":
             return CustomerView.get_single(request, id)
         if request.method == "DELETE":
