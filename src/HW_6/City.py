@@ -1,4 +1,4 @@
-from src.HW_6.Person import Person
+from src import Person
 
 
 class CityError(Exception):
@@ -65,3 +65,6 @@ except CityError as e:
 print(c2.name)
 print(c2.language)
 """
+
+
+

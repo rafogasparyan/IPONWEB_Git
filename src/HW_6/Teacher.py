@@ -1,7 +1,7 @@
-from src.HW_6.DateTime import Date
-from src.HW_6.Money import Money
-from src.HW_6.Person import Person, Company
-from src.HW_6.University import University
+from src import Date
+from src import Money
+from src import Person
+from src import University
 
 
 class Teacher(Person):

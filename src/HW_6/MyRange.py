@@ -25,7 +25,7 @@ class MyRange:
         return cur
 
     def __len__(self):
-        return (self.__end - self.__step) // self.__step
+        return (self.__end - self.__current) // self.__step
 
     def __getitem__(self, item):
         if item < 0:

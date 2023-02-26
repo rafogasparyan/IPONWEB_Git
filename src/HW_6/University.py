@@ -1,6 +1,6 @@
-from src.HW_6.City import City
-from src.HW_6.DateTime import Date
-from src.HW_6.Person import Person
+from src import City
+from src import Date
+from src import Person
 
 
 class University:

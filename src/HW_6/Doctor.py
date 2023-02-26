@@ -1,5 +1,5 @@
-from src.HW_6.Money import Money
-from src.HW_6.Person import Person, PersonError
+from src import Money
+from src import Person
 
 
 class DoctorError(Exception):
